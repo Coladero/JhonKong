@@ -115,7 +115,7 @@ Definition of the different states and their transition (transition functions)
 
 ### Git
 URls for the project repo and deploy
-[Link Repo]
+[Link Repo] https://github.com/Coladero/JhonKong
 [Link Deploy]
 
 ### Slides
