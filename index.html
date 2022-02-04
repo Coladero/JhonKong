@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Jhon Kong</title>
 </head>
 <body>
-    
+    <div class="container">
+        <!-- START SCREEN -->
+        <div onmouseenter="audioMenu.play()" id="start-screen" class="container">
+          <img src="./img/startGame.png" width="500" alt="logo" />
+          <button onmousedown="audioStart.play()" id="start-btn">Start Game!</button>
+        </div>
+        <!-- GAME SCREEN -->
+        <canvas  id="myCanvas" width="800" height="600"></canvas>
+        <!-- WIN SCREEN -->
+        <div id="win-screen" class="container">
+            <img src="./img/YouWin.png" width="500" alt="logo" />
+            <button onmousedown="audioWin.play()" id="youWin-btn">Click Here<br> Cheater!</button>
+          </div>
+        <!-- GAMEOVER SCREEN -->
+        <div id="gameover-screen" class="container">
+          <img src="./img/gameOver.png" width="500" alt="logo" />
+          <button onmousedown="audioLose.play()" id="restart-btn">Ha!Ha!..Ok,<br>Try Again</button>
+        </div>
+      </div>
+
+      <script src="./javascripts/main.js"></script>
+      <script src="./javascripts/game.js"></script>
+      <script src="./javascripts/mario.js"></script>
+      <script src="./javascripts/luigi.js"></script>
+      <script src="./javascripts/goomba.js"></script>
+      <script>
+          //audio botones.
+      let audioStart = new Audio();
+      audioStart.src = "./audio/empezarjugar.mp3"//empezar juego.
+      let audioWin = new Audio();
+      audioWin.src = "./audio/ganaste.mp3";//cuando ganas.
+      let audioLose = new Audio();
+      audioLose.src = "./audio/perdiste.mp3"//cuando pierdes.
+      //Canciones juego.
+      let audioMenu = new Audio();
+      audioMenu.src = "./audio/menu.mp3"//cancion Menu.
+      </script>
     
 </body>
 </html>
