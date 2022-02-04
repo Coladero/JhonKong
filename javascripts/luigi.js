@@ -1,9 +1,9 @@
 class Luigi{
     constructor(){
         this.x = 650;
-        this.y = 50;
-        this.w = 50;
-        this.h = 50;
+        this.y = 30;
+        this.w = 30;
+        this.h = 30;
         this.img = new Image();
         this.img.src = "./img/luigi.png";
     }

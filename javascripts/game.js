@@ -8,6 +8,11 @@ class Game {
       this.mario = new Mario();
       this.luigi = new Luigi();
       this.goomba = new Goomba();
+      this.platform = new Platform();
+      this.floor = new Floor();
+      this.platTop = new PlatTop();
+      this.floorBoss = new FloorBoss();
+
 
 
     }
@@ -44,6 +49,11 @@ class Game {
         this.mario.drawMario();
         this.luigi.drawLuigi();
         this.goomba.drawGoomba();
+        this.platform.drawPlatform();
+        this.floor.drawFloor();
+        this.platTop.drawPlatTop();
+        this.floorBoss.drawFloorBoss();
+
         //4. la recursion para la animacion.
         requestAnimationFrame(this.gameLoop); //llamar a la funcion dentro de ella misma.
     };
