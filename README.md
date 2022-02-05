@@ -30,11 +30,12 @@ Jhon Kong It's a multi-level platform game that will take you back to the 2d era
 - Game () {}
 - starLoop () {}
 - checkCollisions () {}
-- addTentacle () {}
 - clearCanvas () {}
 - updateCanvas () {}
 - drawCanvas () {}
+- StartScreen(){}
 - GameOver () {}
+- WinScreen(){}
 
 # Mario.js 
 
@@ -56,20 +57,22 @@ Jhon Kong It's a multi-level platform game that will take you back to the 2d era
     this.y;
     this.size;
 }
-- draw () {}
+- drawFlower () {}
 - inmuneTime(){}
 - checkCollision(){}
 
-# Mushroom.js 
+# Goomba.js 
 
-- Mushroom () {
+- Goomba () {
     this.x;
     this.y;
+    this.size;
     this.direction;
-    this.size
+    this.img;
+    
 }
-- draw () {}
-- move () {}
+- drawGoomba () {}
+- goombamove () {}
 - checkCollisionMario () {}
 
 # BadLuigi.js 
@@ -77,7 +80,7 @@ Jhon Kong It's a multi-level platform game that will take you back to the 2d era
 - BadLuigi () {
     this.x;
     this.y;
-    this.size
+    this.size;
 }
 - draw () {}
 - checkCollisionMario () {}
