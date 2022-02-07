@@ -49,8 +49,17 @@ const startGame = () => {
 let startButton = document.querySelector("#start-btn");
 startButton.addEventListener("click", startGame);
 
+document.addEventListener("keydown",(event) =>{
+  newGame.mario.marioMove(event)
+})
+
+
 let youWinButton = document.querySelector("#youWin-btn");
 youWinButton.addEventListener("click", youWin)
 
 let restartButton = document.querySelector("#gameover-screen");
 restartButton.addEventListener("click",restartGAme);
+
+
+
+
