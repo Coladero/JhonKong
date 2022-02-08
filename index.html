@@ -10,12 +10,14 @@
   <body>
     <div class="container">
       <!-- START SCREEN -->
-      <div id="start-screen" class="container">
+      <div onmouseenter="pressStart.play()" id="start-screen" class="container">
         <img src="./img/startGame.png" width="500" alt="logo" />
-        <button id="start-btn">Start Game!</button>
+        <button  id="start-btn">Start Game!</button>
       </div>
       <!-- GAME SCREEN -->
+      
       <canvas id="myCanvas" width="800" height="600"></canvas>
+      <p id="timer"></p>
       <!-- WIN SCREEN -->
       <div id="win-screen" class="container">
         <img src="./img/YouWin.png" width="500" alt="logo" />
@@ -40,17 +42,6 @@
     <script src="./javascripts/floor.js"></script>
     <script src="./javascripts/PlatTop.js"></script>
     <script src="./javascripts/floorBoss.js"></script>
-    <script>
-      //audio botones.
-      let audioStart = new Audio();
-      audioStart.src = "./audio/empezarjugar.mp3"; //empezar juego.
-      let audioWin = new Audio();
-      audioWin.src = "./audio/ganaste.mp3"; //cuando ganas.
-      let audioLose = new Audio();
-      audioLose.src = "./audio/perdiste.mp3"; //cuando pierdes.
-      //Canciones juego.
-      let audioMenu = new Audio();
-      audioMenu.src = "./audio/menu.mp3"; //cancion Menu.
-    </script>
+    <script src="./javascripts/flower.js"></script>
   </body>
 </html>

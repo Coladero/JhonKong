@@ -7,6 +7,8 @@ body {
   background-color: gray;
 }
 
+
+
 #start-btn{
   background-color: rgb(144,238,144)  ;
   color: rgb(178,34,34)  ;
@@ -47,3 +49,5 @@ body {
 #gameover-screen, #win-screen {
 display: none;
 }
+
+

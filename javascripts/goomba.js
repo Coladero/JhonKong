@@ -1,11 +1,11 @@
 class Goomba {
-  constructor() {
-    this.x = 20;
-    this.y = 0;
+  constructor(pasYPAram,srcParam) {
+    this.x = Math.random()*700 - 7;
+    this.y = pasYPAram;
     this.w = 50;
     this.h = 50;
     this.img = new Image();
-    this.img.src = "./img/goomba.png";
+    this.img.src = srcParam;
   }
 
   //metodos para Goomba.
