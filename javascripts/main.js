@@ -23,7 +23,8 @@ const startGame = () => {
     //ejecutar el juego
     newGame = new Game();
     newGame.gameLoop();
-    
+    this.Timer.updateClock()
+
     
     
   };
@@ -31,12 +32,13 @@ const startGame = () => {
     //desaparece win screen y aparece pantalla principal.
     youWinScreen.style.display = "none";
     startScreen.style.display = "flex";
+
   };
   const restartGAme = () => {
     //desaparece game over y aparece pantalla principal.
     gameOverScreen.style.display = "none";
     startScreen.style.display = "flex";
-    
+    youLose.play()
     
     
     
@@ -82,15 +84,16 @@ mainTrack.volume = 1;
 mainTrack.preload = "auto";
 mainTrack.load();
 mainTrack.muted = false;
+
 let youLose = new Audio("./audio/GameOver.mp3")
 youLose.volume = 1;
 youLose.preload = "auto";
 youLose.load();
 
-let youWinSound = new Audio("./audio/youwin.mp3")
-youWinSound.volume = 1;
-youWinSound.preload = "auto";
-youWinSound.load();
+let youWinAu = new Audio("./audio/youwin.mp3")
+youWinAu.volume = 1;
+youWinAu.preload = "auto";
+youWinAu.load();
 
 let marioJumpy = new Audio("./audio/mariojump.mp3")
 marioJumpy.volume = 1;

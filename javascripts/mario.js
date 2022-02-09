@@ -39,6 +39,12 @@ jump(){
     if(this.marioy !== 510){
         this.marioy -= this.speedY;
     }
-        marioJumpy.play()
-  }                           
+    if(this.mariox < 650 || this.marioy > this.floor.y){
+    this.marioy = 450
+    }
+    if(this.marioy === this.floor.y || this.mariox < 150){
+      this.marioy = 260
+    }
+        marioJumpy.play()              
   }
+}

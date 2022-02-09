@@ -1,6 +1,6 @@
 
 
-window.onload = updateClock;
+window.onclick = updateClock;
 let totalTime = 40;
 function updateClock() {
 document.getElementById('timer').innerHTML = totalTime;

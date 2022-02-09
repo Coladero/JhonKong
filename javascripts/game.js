@@ -39,7 +39,7 @@ class Game {
   };
 
   //! Collisions functions.
-  //Mario and Luigi collision for win.
+  //Mario and Luigi collision for win.  
   checkmarioLuigiCollision = () => {
     if (
       this.mario.mariox < this.luigi.x + this.luigi.w &&
@@ -52,7 +52,7 @@ class Game {
       canvas.style.display = "none";
       //3 gameover screen
       youWinScreen.style.display = "flex";
-      youWinSound();
+      youWinAu.play()
     }
   };
   //Mario and GoombaArr collision lose.
@@ -85,20 +85,20 @@ class Game {
       }
     }
   }
+  //Second floor
   checkMarioPlatformCollision = () =>{
-    console.log(this.mario.mariox < this.platform.x + this.platform.w)
-    if (
-      this.mario.mariox < this.platform.x + this.platform.w &&
-      this.mario.mariox + this.mario.mariow > this.platform.x &&
+        if (
+      this.mario.mariox >= this.platform.x + this.platform.w &&
+      this.mario.mariox + this.mario.mariow <= this.platform.x &&
       this.mario.marioy < this.platform.y + this.platform.h &&
       this.mario.marioh + this.mario.marioy > this.platform.y
     ) {
       if(this.mario.marioy < this.platform.y){
         this.mario.marioy = this.platform.y - this.mario.marioh
-        // console.log("ole")
       }
     }
   }
+  //Third floor
   checkMarioPlatTopCollision = () =>{
     if (
       this.mario.mariox < this.platTop.x + this.platTop.w &&
@@ -111,10 +111,11 @@ class Game {
       }
     }
   }
+  //Fourth floor
   checkMarioFloorBossCollision = () =>{
     if (
-      this.mario.mariox < this.floorBoss.x + this.floorBoss.w &&
-      this.mario.mariox + this.mario.mariow > this.floorBoss.x &&
+      this.mario.mariox >= this.floorBoss.x + this.floorBoss.w &&
+      this.mario.mariox + this.mario.mariow <= this.floorBoss.x &&
       this.mario.marioy < this.floorBoss.y + this.floorBoss.h &&
       this.mario.marioh + this.mario.marioy > this.floorBoss.y
     ) {
