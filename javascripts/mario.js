@@ -4,10 +4,10 @@ class Mario {
     this.marioy = 500;
     this.mariow = 30;
     this.marioh = 30;
-    this.speedX = 0;
-    this.speedY = 0;
+    this.speedX = 10;
+    this.speedY = 130;
     this.weight = 0.19;
-    this.gravity = 15;
+    this.gravity = 5;
     this.img = new Image();
     this.img.src = "./img/mario-normal.png";
   }
@@ -19,38 +19,26 @@ class Mario {
   };
 
   marioMove = (event) => {
-    if (event.key === "ArrowRight" && this.mariox < canvas.width -10) {
-      this.speedX = 3;
-    } else if (event.key === "ArrowLeft" && this.mariox > 10) {
-      this.speedX = -3;
+    if (event.key === "ArrowRight") {
+      this.mariox += this.speedX;
+    } else if (event.key === "ArrowLeft") {
+      this.mariox -= this.speedX;
     } else if (event.key === "ArrowUp") {
-      jump();
+      this.jump();
     }
   };
 
   updatePosition(){
-    this.mariox += this.speedX
-    this.marioy += this.speedY
-    if (this.speedY < this.gravity){
-        this.speedY += this.weight
-    } 
-
-}
+    // this.marioy += this.speedY
+    if (this.marioy !== 500){
+        this.marioy++
+    }
+    }
 
 jump(){
-    if(this.marioy === 500){
-        this.speedY = -7.5;
+    if(this.marioy !== 510){
+        this.marioy -= this.speedY;
+    }
         marioJumpy.play()
-    }                           
-}
-checkLimits(){
-
-
-  if(this.marioy > 500){
-      this.marioy = 500
+  }                           
   }
-
-
-}
-
-}

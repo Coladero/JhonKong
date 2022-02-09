@@ -16,7 +16,7 @@ const startGame = () => {
     //desaparecer start creen y aparece canvas.
     startScreen.style.display = "none";
     canvas.style.display = "flex"; // le damos el display que tengamos en el css.
-    mainTrack.play()
+    // mainTrack.play()
     
       
     
@@ -31,7 +31,6 @@ const startGame = () => {
     //desaparece win screen y aparece pantalla principal.
     youWinScreen.style.display = "none";
     startScreen.style.display = "flex";
-    mainTrack.defaultMuted()
   };
   const restartGAme = () => {
     //desaparece game over y aparece pantalla principal.
@@ -56,7 +55,7 @@ startButton.addEventListener("click", startGame);
 
 
 
-document.addEventListener("keydown",(event) =>{
+document.addEventListener('keydown',(event) =>{
   newGame.mario.marioMove(event)
 })
 

@@ -7,13 +7,13 @@ class Game {
     this.mario = new Mario();
     this.luigi = new Luigi();
     this.goomba = new Goomba();
+    this.flower = [new Flower(0,"./img/flower.png")];
     this.platform = new Platform();
     this.floor = new Floor();
     this.platTop = new PlatTop();
     this.floorBoss = new FloorBoss();
     this.goombaArr = [new Goomba(20,"./img/goomba.png",)];
     this.goombaSepar = 500;
-    this.flower = new Flower();
     this.isGameOn = true;
   }
 
@@ -48,11 +48,11 @@ class Game {
       this.mario.marioh + this.mario.marioy > this.luigi.y
     ) {
       this.isGameOn = false;
-      youWinSound();
       //2 ocultar canvas
       canvas.style.display = "none";
       //3 gameover screen
       youWinScreen.style.display = "flex";
+      youWinSound();
     }
   };
   //Mario and GoombaArr collision lose.
@@ -81,19 +81,59 @@ class Game {
       this.mario.marioh + this.mario.marioy > this.floor.y
     ) {
       if(this.mario.marioy < this.floor.y){
-        this.mario.marioy = this.floor.y + this.mario.marioh
+        this.mario.marioy = this.floor.y - this.mario.marioh
       }
     }
   }
-  //Mario and Flower Collision.
-  checkMarioFlowerCollision = () =>{
-    if (this.mario.mariox < this.flower.x + this.flower.w &&
-      this.mario.mariox + this.mario.mariow > this.flower.x &&
-      this.mario.marioy < this.flower.y + this.flower.h &&
-      this.mario.marioh + this.mario.marioy > this.flower.y) {
-        this.flower.splice(0,1);
+  checkMarioPlatformCollision = () =>{
+    console.log(this.mario.mariox < this.platform.x + this.platform.w)
+    if (
+      this.mario.mariox < this.platform.x + this.platform.w &&
+      this.mario.mariox + this.mario.mariow > this.platform.x &&
+      this.mario.marioy < this.platform.y + this.platform.h &&
+      this.mario.marioh + this.mario.marioy > this.platform.y
+    ) {
+      if(this.mario.marioy < this.platform.y){
+        this.mario.marioy = this.platform.y - this.mario.marioh
+        // console.log("ole")
+      }
     }
-    
+  }
+  checkMarioPlatTopCollision = () =>{
+    if (
+      this.mario.mariox < this.platTop.x + this.platTop.w &&
+      this.mario.mariox + this.mario.mariow > this.platTop.x &&
+      this.mario.marioy < this.platTop.y + this.platTop.h &&
+      this.mario.marioh + this.mario.marioy > this.platTop.y
+    ) {
+      if(this.mario.marioy < this.platTop.y){
+        this.mario.marioy = this.platTop.y - this.mario.marioh
+      }
+    }
+  }
+  checkMarioFloorBossCollision = () =>{
+    if (
+      this.mario.mariox < this.floorBoss.x + this.floorBoss.w &&
+      this.mario.mariox + this.mario.mariow > this.floorBoss.x &&
+      this.mario.marioy < this.floorBoss.y + this.floorBoss.h &&
+      this.mario.marioh + this.mario.marioy > this.floorBoss.y
+    ) {
+      if(this.mario.marioy < this.floorBoss.y){
+        this.mario.marioy = this.floorBoss.y - this.mario.marioh
+      }
+    }
+  }
+  // Mario and Flower Collision.
+  checkMarioFlowerCollision = (eachFlowerParam) =>{
+    if (this.mario.mariox < eachFlowerParam.x + eachFlowerParam.w &&
+      this.mario.mariox + this.mario.mariow > eachFlowerParam.x &&
+      this.mario.marioy < eachFlowerParam.y + eachFlowerParam.h &&
+      this.mario.marioh + this.mario.marioy > eachFlowerParam.y) {
+        console.log("collision")
+        this.flower.splice(0,1);
+
+    }
+  
   }
 
   gameLoop = () => {
@@ -103,10 +143,10 @@ class Game {
     this.goomba.goombaMove();
     this.checkmarioLuigiCollision();
     this.checkMarioFloorCollision();
-    this.checkMarioFlowerCollision();
+    this.checkMarioPlatformCollision();
+    this.checkMarioPlatTopCollision();
+    this.checkMarioFloorBossCollision();
     this.mario.updatePosition();  
-    this.mario.checkLimits()
-    this.mario.jump();
     this.goombaArr.forEach((eachGoomba) =>{
       eachGoomba.goombaMove()
   });
@@ -114,17 +154,23 @@ class Game {
   this.goombaArr.forEach((eachGoomba) =>{
       this.checkmarioGoombaCollision(eachGoomba);
   });
+  this.flower.forEach((eachFlower) =>{
+    this.checkMarioFlowerCollision(eachFlower);
+});
+
 
 
     //3. dibujar los elementos.
     //draw Pj's.
     this.drawBackGround();
     this.mario.drawMario();
-    this.flower.drawFlower()
     this.luigi.drawLuigi();
     this.goombaArr.forEach((eachGoomba) => {
       eachGoomba.drawGoomba()
   })
+  this.flower.forEach((eachFlower) => {
+    eachFlower.drawFlower()
+})
     //draw platforms.
     this.platform.drawPlatform();
     this.floor.drawFloor();

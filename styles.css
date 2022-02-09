@@ -6,6 +6,13 @@ body {
 #myCanvas {
   background-color: gray;
 }
+#timer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10;
+  font-size: 10;
+}
 
 
 
