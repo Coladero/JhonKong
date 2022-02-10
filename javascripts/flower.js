@@ -1,5 +1,3 @@
-
-
 class Flower{
     constructor(){
     this.x = 600;

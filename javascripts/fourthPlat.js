@@ -1,4 +1,4 @@
-class FloorBoss{
+class FourthPlat{
     constructor(){
         this.x = canvas.width;
         this.y = 60;
