@@ -68,6 +68,7 @@ class Game {
       youLose.play().then(() => {
         return mainTrack.pause();
       });
+
       //2 ocultar canvas
       canvas.style.display = "none";
       //3 gameover screen
@@ -169,6 +170,7 @@ class Game {
     } else if (marioOnEdge || marioEdge2 || marioEdge3 || marioEdge4) {
       this.mario.marioy -= 145;
     }
+    marioJumpy.play()
   }
 
   gameLoop = () => {

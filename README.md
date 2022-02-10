@@ -36,6 +36,7 @@ Jhon Kong It's a multi-level platform game that will take you back to the 2d era
 - StartScreen(){}
 - GameOver () {}
 - WinScreen(){}
+- Music(){}
 
 # Mario.js 
 

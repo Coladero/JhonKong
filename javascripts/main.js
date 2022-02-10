@@ -58,7 +58,7 @@ pressStart.volume = 1;
 pressStart.preload = "auto";
 pressStart.load();
 
-let mainTrack = new Audio("../audio/mainTheme.mp3");
+let mainTrack = new Audio("./audio/mainTheme.mp3");
 mainTrack.volume = 0.8;
 mainTrack.preload = "auto";
 mainTrack.load();
