@@ -14,10 +14,11 @@ const startGame = () => {
   //desaparecer start creen y aparece canvas.
   startScreen.style.display = "none";
   canvas.style.display = "flex"; // le damos el display que tengamos en el css.
-  mainTrack.play()
+
 
   //ejecutar el juego
   newGame = new Game();
+  mainTrack.play()
   newGame.gameLoop();
   this.Timer.updateClock();
 };
