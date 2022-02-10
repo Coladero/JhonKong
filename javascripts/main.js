@@ -53,32 +53,32 @@ restartButton.addEventListener("click", restartGAme);
 
 //! Sounds
 
-let pressStart = new Audio("/audio/pressstart.mp3");
+let pressStart = new Audio("./audio/pressstart.mp3");
 pressStart.volume = 1;
 pressStart.preload = "auto";
 pressStart.load();
 
-let mainTrack = new Audio("/audio/mainTheme.mp3");
+let mainTrack = new Audio("./audio/mainTheme.mp3");
 mainTrack.volume = 0.8;
 mainTrack.preload = "auto";
 mainTrack.load();
 
-let youLose = new Audio("/audio/GameOver.mp3");
+let youLose = new Audio("./audio/GameOver.mp3");
 youLose.volume = 1;
 youLose.preload = "auto";
 youLose.load();
 
-let youWinAu = new Audio("/audio/youwin.mp3");
+let youWinAu = new Audio("./audio/youwin.mp3");
 youWinAu.volume = 1;
 youWinAu.preload = "auto";
 youWinAu.load();
 
-let marioJumpy = new Audio("/audio/mariojump.mp3");
+let marioJumpy = new Audio("./audio/mariojump.mp3");
 marioJumpy.volume = 1;
 marioJumpy.preload = "auto";
 marioJumpy.load();
 
-let marioStar = new Audio("/audio/mariostar.mp3");
+let marioStar = new Audio("./audio/mariostar.mp3");
 marioStar.volume = 1;
 marioStar.preload = "auto";
 marioStar.load();
