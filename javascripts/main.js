@@ -15,7 +15,6 @@ const startGame = () => {
   startScreen.style.display = "none";
   canvas.style.display = "flex"; // le damos el display que tengamos en el css.
 
-
   //ejecutar el juego
   newGame = new Game();
   mainTrack.play()
@@ -41,9 +40,10 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowUp") {
     newGame.jump();
   } else {
-    newGame.mario.marioMove(event);
+    newGame.marioMove(event);
   }
 });
+
 
 let youWinButton = document.querySelector("#youWin-btn");
 youWinButton.addEventListener("click", youWin);
@@ -58,7 +58,7 @@ pressStart.volume = 1;
 pressStart.preload = "auto";
 pressStart.load();
 
-let mainTrack = new Audio("./audio/mainTheme.mp3");
+let mainTrack = new Audio("./audio/dfsdfs.mp3");
 mainTrack.volume = 0.8;
 mainTrack.preload = "auto";
 mainTrack.load();

@@ -18,14 +18,6 @@ class Mario {
     ctx.drawImage(this.img, this.mariox, this.marioy, this.mariow, this.marioh);
   };
 
-  marioMove = (event) => {
-    if (event.key === "ArrowRight") {
-      this.mariox += this.speedX;
-    } else if (event.key === "ArrowLeft") {
-      this.mariox -= this.speedX;
-    }
-  };
-
   updatePosition() {
     // this.marioy += this.speedY
     if (this.marioy !== 500) {

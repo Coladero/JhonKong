@@ -172,7 +172,13 @@ class Game {
     }
     marioJumpy.play()
   }
-
+  marioMove = (event) => {
+    if (event.key === "ArrowRight") {
+      this.mario.mariox += this.mario.speedX;
+    } else if (event.key === "ArrowLeft") {
+      this.mario.mariox -= this.mario.speedX;
+    }
+  };
   gameLoop = () => {
     //1. limpiar el canvas.
     this.clearCanvas();
