@@ -20,7 +20,6 @@ const startGame = () => {
   newGame = new Game();
   mainTrack.play()
   newGame.gameLoop();
-  this.Timer.updateClock();
 };
 const youWin = () => {
   //desaparece win screen y aparece pantalla principal.
