@@ -39,30 +39,16 @@ class Game {
 
   jump() {
     let marioIsFloor = this.mario.marioy === 500 && this.mario.mariox < 650;
-    let marioIsFirstPlatform =
-      this.mario.marioy === 391 &&
-      this.mario.mariox < 650 &&
-      this.mario.mariox > 150;
-    let marioIsSecondPlatform =
-      this.mario.marioy === 271 &&
-      this.mario.mariox < 650 &&
-      this.mario.mariox > 150;
-    let marioIsThirdPlatform =
-      this.mario.marioy === 141 &&
-      this.mario.mariox < 650 &&
-      this.mario.mariox > 150;
+    let marioIsFirstPlatform = this.mario.marioy === 391 && this.mario.mariox < 650 && this.mario.mariox > 150;
+    let marioIsSecondPlatform = this.mario.marioy === 271 && this.mario.mariox < 650 && this.mario.mariox > 150;
+    let marioIsThirdPlatform = this.mario.marioy === 141 && this.mario.mariox < 650 && this.mario.mariox > 150;
 
     let marioOnEdge = this.mario.marioy === 500 && this.mario.mariox >= 650;
     let marioEdge2 = this.mario.marioy === 391 && this.mario.mariox <= 150;
     let marioEdge3 = this.mario.marioy === 271 && this.mario.mariox >= 650;
     let marioEdge4 = this.mario.marioy === 141 && this.mario.mariox <= 150;
 
-    if (
-      marioIsFloor ||
-      marioIsFirstPlatform ||
-      marioIsSecondPlatform ||
-      marioIsThirdPlatform
-    ) {
+    if (marioIsFloor || marioIsFirstPlatform || marioIsSecondPlatform || marioIsThirdPlatform) {
       this.mario.marioy -= 45;
     } else if (marioOnEdge || marioEdge2 || marioEdge3 || marioEdge4) {
       this.mario.marioy -= 145;
@@ -96,6 +82,9 @@ class Game {
       youWinAu.play().then(() => {
         return mainTrack.pause();
       });
+      youWinAu.play().then(() => {
+        return marioStar.pause();
+      });
     }
   };
   //Mario and GoombaArr collision lose.
@@ -108,9 +97,11 @@ class Game {
     ) {
       this.isGameOn = false;
       youLose.play().then(() => {
-        return mainTrack.pause();
+        return mainTrack.pause().marioStar.pause();
       });
-
+      youLose.play().then(() => {
+        return marioStar.pause();
+      });
       //2 ocultar canvas
       canvas.style.display = "none";
       //3 gameover screen
@@ -187,12 +178,12 @@ class Game {
     //1. limpiar el canvas.
     this.clearCanvas();
     //2. mover los elementos u otras acciones.
-    this.goomba.goombaMove();
     this.checkmarioLuigiCollision();
     this.checkMariofirstPlatCollision();
     this.checkMarioSecondPlatCollision();
     this.checkMarioThirdPlatCollision();
     this.checkMarioFourthPlatCollision();
+    this.goomba.goombaMove();
     this.mario.updatePosition();
     this.goombaArr.forEach((eachGoomba) => {
       eachGoomba.goombaMove();
@@ -205,8 +196,6 @@ class Game {
       this.checkMarioFlowerCollision(eachFlower);
     });
     
-
-
     //3. dibujar los elementos.
     //draw Pj's.
     this.drawBackGround();

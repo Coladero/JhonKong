@@ -4,7 +4,7 @@ class Mario {
     this.marioy = 500;
     this.mariow = 30;
     this.marioh = 30;
-    this.speedX = 15;
+    this.speedX = 18;
     this.speedY = 0;
     this.weight = 0.19;
     this.gravity = 5;
