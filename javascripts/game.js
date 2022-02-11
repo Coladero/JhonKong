@@ -37,6 +37,48 @@ class Game {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
+  jump() {
+    let marioIsFloor = this.mario.marioy === 500 && this.mario.mariox < 650;
+    let marioIsFirstPlatform =
+      this.mario.marioy === 391 &&
+      this.mario.mariox < 650 &&
+      this.mario.mariox > 150;
+    let marioIsSecondPlatform =
+      this.mario.marioy === 271 &&
+      this.mario.mariox < 650 &&
+      this.mario.mariox > 150;
+    let marioIsThirdPlatform =
+      this.mario.marioy === 141 &&
+      this.mario.mariox < 650 &&
+      this.mario.mariox > 150;
+
+    let marioOnEdge = this.mario.marioy === 500 && this.mario.mariox >= 650;
+    let marioEdge2 = this.mario.marioy === 391 && this.mario.mariox <= 150;
+    let marioEdge3 = this.mario.marioy === 271 && this.mario.mariox >= 650;
+    let marioEdge4 = this.mario.marioy === 141 && this.mario.mariox <= 150;
+
+    if (
+      marioIsFloor ||
+      marioIsFirstPlatform ||
+      marioIsSecondPlatform ||
+      marioIsThirdPlatform
+    ) {
+      this.mario.marioy -= 45;
+    } else if (marioOnEdge || marioEdge2 || marioEdge3 || marioEdge4) {
+      this.mario.marioy -= 145;
+    }
+    marioJumpy.play()
+  }
+
+  marioMove = (event) => {
+    if (event.key === "ArrowRight") {
+      this.mario.mariox += this.mario.speedX;
+    } else if (event.key === "ArrowLeft") {
+      this.mario.mariox -= this.mario.speedX;
+    }
+  };
+  
+  
   //! Collisions functions.
   //Mario and Luigi collision for win.
   checkmarioLuigiCollision = () => {
@@ -140,45 +182,7 @@ class Game {
     }
   };
 
-  jump() {
-    let marioIsFloor = this.mario.marioy === 500 && this.mario.mariox < 650;
-    let marioIsFirstPlatform =
-      this.mario.marioy === 391 &&
-      this.mario.mariox < 650 &&
-      this.mario.mariox > 150;
-    let marioIsSecondPlatform =
-      this.mario.marioy === 271 &&
-      this.mario.mariox < 650 &&
-      this.mario.mariox > 150;
-    let marioIsThirdPlatform =
-      this.mario.marioy === 141 &&
-      this.mario.mariox < 650 &&
-      this.mario.mariox > 150;
 
-    let marioOnEdge = this.mario.marioy === 500 && this.mario.mariox >= 650;
-    let marioEdge2 = this.mario.marioy === 391 && this.mario.mariox <= 150;
-    let marioEdge3 = this.mario.marioy === 271 && this.mario.mariox >= 650;
-    let marioEdge4 = this.mario.marioy === 141 && this.mario.mariox <= 150;
-
-    if (
-      marioIsFloor ||
-      marioIsFirstPlatform ||
-      marioIsSecondPlatform ||
-      marioIsThirdPlatform
-    ) {
-      this.mario.marioy -= 45;
-    } else if (marioOnEdge || marioEdge2 || marioEdge3 || marioEdge4) {
-      this.mario.marioy -= 145;
-    }
-    marioJumpy.play()
-  }
-  marioMove = (event) => {
-    if (event.key === "ArrowRight") {
-      this.mario.mariox += this.mario.speedX;
-    } else if (event.key === "ArrowLeft") {
-      this.mario.mariox -= this.mario.speedX;
-    }
-  };
   gameLoop = () => {
     //1. limpiar el canvas.
     this.clearCanvas();
@@ -200,6 +204,8 @@ class Game {
     this.flower.forEach((eachFlower) => {
       this.checkMarioFlowerCollision(eachFlower);
     });
+    
+
 
     //3. dibujar los elementos.
     //draw Pj's.

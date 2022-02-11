@@ -14,11 +14,12 @@ const startGame = () => {
   //desaparecer start creen y aparece canvas.
   startScreen.style.display = "none";
   canvas.style.display = "flex"; // le damos el display que tengamos en el css.
-
   //ejecutar el juego
   newGame = new Game();
   mainTrack.play()
   newGame.gameLoop();
+
+
 };
 const youWin = () => {
   //desaparece win screen y aparece pantalla principal.
